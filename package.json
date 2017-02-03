@@ -1,0 +1,86 @@
+{
+  "_args": [
+    [
+      {
+        "raw": "react-native-stripe-checkout@file:../react-native-stripe-checkout",
+        "scope": null,
+        "escapedName": "react-native-stripe-checkout",
+        "name": "react-native-stripe-checkout",
+        "rawSpec": "file:../react-native-stripe-checkout",
+        "spec": "/Users/mb/Documents/react-native-stripe-checkout",
+        "type": "directory"
+      },
+      "/Users/mb/Documents/rnMobileBASE"
+    ]
+  ],
+  "_from": "../react-native-stripe-checkout",
+  "_id": "react-native-stripe-checkout@0.0.15",
+  "_inCache": true,
+  "_location": "/react-native-stripe-checkout",
+  "_phantomChildren": {},
+  "_requested": {
+    "raw": "react-native-stripe-checkout@file:../react-native-stripe-checkout",
+    "scope": null,
+    "escapedName": "react-native-stripe-checkout",
+    "name": "react-native-stripe-checkout",
+    "rawSpec": "file:../react-native-stripe-checkout",
+    "spec": "/Users/mb/Documents/react-native-stripe-checkout",
+    "type": "directory"
+  },
+  "_requiredBy": [
+    "/"
+  ],
+  "_resolved": "file:../react-native-stripe-checkout",
+  "_shasum": "e42c4be4de263a5fb04fa069eb2185e037238286",
+  "_shrinkwrap": null,
+  "_spec": "react-native-stripe-checkout@file:../react-native-stripe-checkout",
+  "_where": "/Users/mb/Documents/rnMobileBASE",
+  "dependencies": {
+    "babel-preset-react-native": "^1.9.1",
+    "lodash": "^4.14.2",
+    "payment": "^2.1.3",
+    "react": "^15.4.2",
+    "react-native-awesome-card-io": "^0.4.0",
+    "react-native-keyboard-spacer": "^0.3.0",
+    "string": "^3.3.3"
+  },
+  "description": "Cross Platform React Native component which mimics Stripe's iOS components. Supports selecting payment method and adding card manually or using the camera.",
+  "devDependencies": {
+    "eslint": "^2.7.0",
+    "eslint-config-airbnb": "^7.0.0",
+    "eslint-plugin-import": "^1.2.0",
+    "eslint-plugin-jsx-a11y": "^0.6.2",
+    "eslint-plugin-react": "^4.3.0",
+    "estraverse-fb": "^1.3.1",
+    "nodemon": "^1.9.1",
+    "react-native-cli": "^0.1.10",
+    "rimraf": "^2.5.4"
+  },
+  "gitHead": "8231f8cc89d6723cdbbb6258ba9074094f6e25f0",
+  "keywords": [
+    "react-native",
+    "react",
+    "stripe",
+    "checkout",
+    "payment",
+    "native",
+    "form"
+  ],
+  "license": "MIT",
+  "main": "src/index.js",
+  "name": "react-native-stripe-checkout",
+  "optionalDependencies": {},
+  "peerDependencies": {
+    "react-native": "^0.40.0"
+  },
+  "private": false,
+  "readme": "# react-native-stripe-checkout [![CircleCI](https://circleci.com/gh/z-dev/react-native-stripe-checkout.svg?style=svg)](https://circleci.com/gh/z-dev/react-native-stripe-checkout)\n\nReact Native component which mimics Stripe's ios component.\n\nFor iOS and Android\n\nNote: This plugin is dependent from react-native-awesome-card-io, which you have to install manually and link  \n\n## Installation\n\n```Bash\n$ npm i react-native-stripe-checkout --save\n$ react-native link react-native-awesome-card-io \n```\n\n## Usage\n\n```\n  <SelectPayment\n    enableApplePay={true} // optional, default: false\n    applePayHandler={() => console.log('apple pay is go')} // optional, mandatory if enableApplePay={true}\n    paymentSources={[{}]} // mandatory, See: [Customer Object](https://stripe.com/docs/api/node#customer_object) -> sources -> data for exact format.\n    selectPaymentHandler={(paymentSource) => console.log(paymentSource)}\n    fontFamily=\"\" // Optional, Default: iOS default\n    fontSize={16} // Optional, Default: iOS default\n    //more custom styles\n\n  />\n\n  <AddCard\n    createCardHandler={(cardDetails) => console.log(cardDetails)}\n    invalidStyle={{borderColor: 'red'}} // Optional. Default: {borderColor: 'red'}\n    fontFamily=\"\" // Optional, Default: iOS default\n    fontSize={16} // Optional, Default: iOS default\n  />\n```\n\n## Selecting a payment method\n\nWhen the component is rendered it shows the user their existing cards.\n\n![](https://stripe.com/img/blog/posts/ui-components-for-ios/wallet@2x.png)\nNo Nav. No card picture. Apple pay present if it exists. Simple Add button at bottom. Tapping a payment option, fires `selectPaymentMethod`\n\n## Adding a card\n\nWe provide support for the minimal number of fields:\n\n* Card Number\n* Expiry Month\n* Expiry Year\n* CVC\n\nThese fields are validated using https://github.com/jessepollak/payment.\n\n![](https://stripe.com/img/documentation/mobile/ios/stripe-ios-ui-theming.png)\n\nAdd button goes at the bottom. No nav. No card diagram.\n\n## Apple pay / Android Wallet\n\nNeither are directly supported. We have a button, which can be enabled / disabled with `enableApplePay` and a handler `applePayHandler` which is called when it is pressed.\n\n\n## Notes\n\nCreate card fields: We care about mandatory ones only: https://stripe.com/docs/api#create_card_token cvc, number, exp_year, exp_year\n\nProp types to check types / mandatory fields\n",
+  "readmeFilename": "README.md",
+  "scripts": {
+    "ci": "npm run lint",
+    "lint": "npm run lint_js",
+    "lint:watch": "nodemon --exec \"npm run lint\"",
+    "lint_js": "eslint src --ext=js --ext=jsx"
+  },
+  "version": "0.0.15"
+}
